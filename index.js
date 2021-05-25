@@ -1,5 +1,6 @@
 const input = require('readline-sync');
-let str = "LaunchCode";
+// let str = "LaunchCode";
+let errorMessage = "";
 let wordInput = input.question("Please enter a word that will be moved around ");
 let letterInput = input.question("Please enter the number of letters you would like to move to the end of " + wordInput+" " );
 letterInput = Number(letterInput);
@@ -19,12 +20,12 @@ letterInput = Number(letterInput);
 //c) Add validation to your code to deal with user inputs that are longer than the word. In such cases, default to moving 3 characters. Also, the template literal should note the error.
 
 if (letterInput > wordInput.length) { // if the number they input is greater than the length of the word they choose, the number will default to 3
-console.log("Sorry your input is larger than the word, input will default to 3");
+errorMessage = "Sorry your input is larger than the word you chose, your input will default to 3.";
 letterInput = 3;
 }
 
 let str2 = wordInput.slice(0,letterInput);
 let str3 = wordInput.slice(letterInput) + str2;
 
-console.log(`The original string ${wordInput} and your new string ${str3}!`);
+console.log(`${errorMessage} The original string ${wordInput} and your new string ${str3}!`);
 
